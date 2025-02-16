@@ -179,8 +179,6 @@ Designer By MengPoTsen.
 | GET     | `/api/users/:id`           | 獲取用戶資料         |
 | PUT     | `/api/users/:id`           | 更新用戶資料         |
 
----
-
 ### 品牌 (Brands)
 
 | 方法    | 路由                       | 描述                 |
@@ -191,7 +189,6 @@ Designer By MengPoTsen.
 | PUT     | `/api/brands/:id`          | 更新品牌資料         |
 | DELETE  | `/api/brands/:id`          | 刪除品牌             |
 
-
 ### 預約 (Bookings)
 
 | 方法    | 路由                       | 描述                 |
@@ -201,14 +198,12 @@ Designer By MengPoTsen.
 | PUT     | `/api/bookings/:id`        | 更新預約資料         |
 | DELETE  | `/api/bookings/:id`        | 取消預約             |
 
-
 ### 付款 (Payments)
 
 | 方法    | 路由                       | 描述                 |
 | ------- | -------------------------- | -------------------- |
 | POST    | `/api/payments/stripe`     | 進行 Stripe 付款     |
 | POST    | `/api/payments/tappay`     | 進行 TapPay 付款     |
-
 
 ### 社群互動 (Interactions)
 
@@ -218,7 +213,6 @@ Designer By MengPoTsen.
 | POST    | `/api/interactions/like`   | 點贊                 |
 | POST    | `/api/interactions/comment`| 留言                 |
 | POST    | `/api/interactions/review` | 評價                 |
-
 
 ---
 
