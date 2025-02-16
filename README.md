@@ -209,38 +209,38 @@ Designer By MengPoTsen.
 
 ## API 設計
 ### 1. 用戶 (Users)
-  **POST /api/users/register - 用戶註冊**
-  **POST /api/users/login - 用戶登入**
-  **GET /api/users/:id - 獲取用戶資料**
-  **PUT /api/users/:id - 更新用戶資料**
+  - **POST /api/users/register - 用戶註冊**
+  - **POST /api/users/login - 用戶登入**
+  - **GET /api/users/:id - 獲取用戶資料**
+  - **PUT /api/users/:id - 更新用戶資料**
 ### 2. 品牌 (Brands)
-  **POST /api/brands/create - 創建品牌**
-  **GET /api/brands/:id - 獲取品牌資料**
-  **GET /api/brands - 獲取所有品牌**
-  **PUT /api/brands/:id - 更新品牌資料**
-  **DELETE /api/brands/:id - 刪除品牌**
+  - **POST /api/brands/create - 創建品牌**
+  - **GET /api/brands/:id - 獲取品牌資料**
+  - **GET /api/brands - 獲取所有品牌**
+  - **PUT /api/brands/:id - 更新品牌資料**
+  - **DELETE /api/brands/:id - 刪除品牌**
 ### 3. 預約 (Bookings)
-  **POST /api/bookings/create - 創建預約**
-  **GET /api/bookings/:id - 獲取預約資料**
-  **PUT /api/bookings/:id - 更新預約資料**
-  **DELETE /api/bookings/:id - 取消預約**
+  - **POST /api/bookings/create - 創建預約**
+  - **GET /api/bookings/:id - 獲取預約資料**
+  - **PUT /api/bookings/:id - 更新預約資料**
+  - **DELETE /api/bookings/:id - 取消預約**
 ### 4. 付款 (Payments)
-  **POST /api/payments/stripe - 進行 Stripe 付款**
-  **POST /api/payments/tappay - 進行 TapPay 付款**
+  - **POST /api/payments/stripe - 進行 Stripe 付款**
+  - **POST /api/payments/tappay - 進行 TapPay 付款**
 ### 5. 社群互動 (Interactions)
-  **POST /api/interactions/follow - 追蹤品牌或用戶**
-  **POST /api/interactions/like - 點贊**
-  **POST /api/interactions/comment - 留言**
-  **POST /api/interactions/review - 評價**
+  - **POST /api/interactions/follow - 追蹤品牌或用戶**
+  - **POST /api/interactions/like - 點贊**
+  - **POST /api/interactions/comment - 留言**
+  - **POST /api/interactions/review - 評價**
 
 ---
 
 ## TODO List
- **完成用戶註冊、登入系統**
- **實現品牌與服務創建功能**
- **實現預約系統與付款整合**
- **實現社群功能（追蹤、留言、點贊）**
- **部署至 Vercel（前端）與 Railway（後端）**
+ - **完成用戶註冊、登入系統**
+ - **實現品牌與服務創建功能**
+ - **實現預約系統與付款整合**
+ - **實現社群功能（追蹤、留言、點贊）**
+ - **部署至 Vercel（前端）與 Railway（後端）**
   
 
 ## License  
