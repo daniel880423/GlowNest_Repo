@@ -87,122 +87,89 @@ Designer By MengPoTsen.
 ## 資料結構設計
 
 ### 1. 用戶 (Users)
-- **{**
-  - **_id: ObjectId,**
-  - **name: String,**
-  - **email: String,**
-  - **password: String,   // 使用 bcrypt 進行加密**
-  - **role: String,       // ['customer', 'member', 'admin']**
-  - **phone: String,**
-  - **avatar: String,     // 頭像 URL**
-  - **bio: String,        // 個人簡介**
-  - **skills: [String],   // 技能標籤 (ex: ['美睫', '美甲', '造型設計'])**
-  - **portfolio: [        // 作品集展示**
-    - **{**
-      - **title: String,**
-      - **image: String,**
-      - **description: String,**
-      - **tags: [String]**
-    - **}**
-  - **],**
-  - **socialLinks: {      // 社群連結**
-    - **instagram: String,**
-    - **facebook: String,**
-    - **line: String**
-  - **},**
-  - **favorites: [ObjectId],   // 收藏的品牌或技師 (關聯到 Brands 或 Users)**
-  - **createdAt: Date,**
-  - **updatedAt: Date**
-- **}**
+
+| 欄位         | 類型      | 描述                           |
+| ------------ | --------- | ------------------------------ |
+| _id          | ObjectId | 用戶唯一識別 ID                 |
+| name         | String   | 用戶名稱                        |
+| email        | String   | 用戶電子郵件                    |
+| password     | String   | 密碼，使用 bcrypt 加密         |
+| role         | String   | 用戶角色 (['customer', 'member', 'admin']) |
+| phone        | String   | 用戶電話                        |
+| avatar       | String   | 用戶頭像 URL                    |
+| bio          | String   | 個人簡介                        |
+| skills       | Array    | 技能標籤 (ex: ['美睫', '美甲', '造型設計']) |
+| portfolio    | Array    | 作品集展示                      |
+| socialLinks  | Object   | 社群連結 (Instagram, Facebook, Line) |
+| favorites    | Array    | 收藏的品牌或技師               |
+| createdAt    | Date     | 創建時間                        |
+| updatedAt    | Date     | 更新時間                        |
+
+---
 
 ### 2. 品牌 (Brands)
-{
-  _id: ObjectId,
-  name: String,
-  description: String,
-  logo: String,           // 品牌 Logo 圖片 URL
-  owner: ObjectId,        // 關聯到 Users (品牌管理員)
-  members: [              // 成員列表
-    {
-      userId: ObjectId,   // 關聯到 Users
-      role: String,       // ['owner', 'stylist', 'admin']
-      status: String      // ['pending', 'active', 'inactive']
-    }
-  ],
-  services: [             // 提供的服務
-    {
-      title: String,
-      description: String,
-      price: Number,
-      duration: Number,   // 預估服務時長 (分鐘)
-      tags: [String]
-    }
-  ],
-  socialLinks: {          // 品牌社群連結
-    instagram: String,
-    facebook: String,
-    line: String
-  },
-  followers: [ObjectId],  // 關聯到 Users (追蹤此品牌的用戶)
-  reviews: [              // 評價
-    {
-      userId: ObjectId,   // 關聯到 Users
-      rating: Number,     // 1 ~ 5 星
-      comment: String,
-      createdAt: Date
-    }
-  ],
-  createdAt: Date,
-  updatedAt: Date
-}
+
+| 欄位         | 類型      | 描述                           |
+| ------------ | --------- | ------------------------------ |
+| _id          | ObjectId | 品牌唯一識別 ID                 |
+| name         | String   | 品牌名稱                        |
+| description  | String   | 品牌描述                        |
+| logo         | String   | 品牌 Logo 圖片 URL             |
+| owner        | ObjectId | 品牌擁有者 (關聯到 Users)      |
+| members      | Array    | 成員列表 (包含用戶 ID 和角色)  |
+| services     | Array    | 提供的服務 (每個服務包含標題、描述、價格等) |
+| socialLinks  | Object   | 品牌社群連結 (Instagram, Facebook, Line) |
+| followers    | Array    | 追蹤此品牌的用戶               |
+| reviews      | Array    | 品牌的評價                      |
+| createdAt    | Date     | 創建時間                        |
+| updatedAt    | Date     | 更新時間                        |
+
+---
 
 ### 3. 預約 (Bookings)
-{
-  _id: ObjectId,
-  customer: ObjectId,        // 關聯到 Users (客戶)
-  brand: ObjectId,           // 關聯到 Brands
-  service: {                 // 預約的服務
-    serviceId: ObjectId,     // 關聯到 Brands.services
-    title: String,
-    price: Number,
-    duration: Number
-  },
-  stylist: ObjectId,         // 關聯到 Users (技師)
-  date: Date,                // 預約日期與時間
-  status: String,            // ['pending', 'confirmed', 'completed', 'canceled']
-  payment: {                 // 付款資訊
-    method: String,          // ['credit_card', 'line_pay', 'cash']
-    status: String,          // ['unpaid', 'paid', 'refunded']
-    transactionId: String,   // 金流平台交易編號
-    amount: Number
-  },
-  notes: String,             // 客戶備註
-  createdAt: Date,
-  updatedAt: Date
-}
+
+| 欄位         | 類型      | 描述                           |
+| ------------ | --------- | ------------------------------ |
+| _id          | ObjectId | 預約唯一識別 ID                 |
+| customer     | ObjectId | 客戶 (關聯到 Users)            |
+| brand        | ObjectId | 品牌 (關聯到 Brands)           |
+| service      | Object   | 服務資訊 (標題、價格、時長等)  |
+| stylist      | ObjectId | 技師 (關聯到 Users)            |
+| date         | Date     | 預約時間                        |
+| status       | String   | 預約狀態 (['pending', 'confirmed', 'completed', 'canceled']) |
+| payment      | Object   | 付款資訊 (方法、狀態、金額等)  |
+| notes        | String   | 客戶備註                        |
+| createdAt    | Date     | 創建時間                        |
+| updatedAt    | Date     | 更新時間                        |
+
+---
 
 ### 4. 社群互動 (Interactions)
-{
-  _id: ObjectId,
-  type: String,               // ['follow', 'like', 'comment', 'review']
-  userId: ObjectId,           // 關聯到 Users (操作人)
-  targetId: ObjectId,         // 關聯到目標 (Users, Brands, Portfolio)
-  targetType: String,         // ['user', 'brand', 'portfolio']
-  content: String,            // 留言內容或評價
-  rating: Number,             // 評價分數 (僅適用於 review)
-  createdAt: Date
-}
+
+| 欄位         | 類型      | 描述                           |
+| ------------ | --------- | ------------------------------ |
+| _id          | ObjectId | 互動唯一識別 ID                 |
+| type         | String   | 互動類型 (['follow', 'like', 'comment', 'review']) |
+| userId       | ObjectId | 用戶 ID (操作人，關聯到 Users) |
+| targetId     | ObjectId | 目標 ID (關聯到 Users, Brands, Portfolio) |
+| targetType   | String   | 目標類型 (['user', 'brand', 'portfolio']) |
+| content      | String   | 留言內容或評價                  |
+| rating       | Number   | 評價分數 (僅適用於 review)      |
+| createdAt    | Date     | 創建時間                        |
+
+---
 
 ### 5. 系統管理 (Admin)
-{
-  _id: ObjectId,
-  action: String,             // 操作類型 (ex: 'create', 'update', 'delete', 'login')
-  userId: ObjectId,           // 操作者 (關聯到 Users)
-  target: String,             // 操作目標 (ex: 'User', 'Brand', 'Booking')
-  targetId: ObjectId,         // 關聯到操作目標的 ID
-  details: String,            // 操作詳情
-  createdAt: Date
-}
+
+| 欄位         | 類型      | 描述                           |
+| ------------ | --------- | ------------------------------ |
+| _id          | ObjectId | 管理操作唯一識別 ID             |
+| action       | String   | 操作類型 (ex: 'create', 'update', 'delete', 'login') |
+| userId       | ObjectId | 操作人 (關聯到 Users)          |
+| target       | String   | 操作目標 (ex: 'User', 'Brand', 'Booking') |
+| targetId     | ObjectId | 操作目標 ID                    |
+| details      | String   | 操作詳情                        |
+| createdAt    | Date     | 創建時間                        |
 
 ---
 
