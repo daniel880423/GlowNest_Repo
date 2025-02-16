@@ -105,7 +105,6 @@ Designer By MengPoTsen.
 | createdAt    | Date     | 創建時間                        |
 | updatedAt    | Date     | 更新時間                        |
 
----
 
 ### 2. 品牌 (Brands)
 
@@ -124,8 +123,6 @@ Designer By MengPoTsen.
 | createdAt    | Date     | 創建時間                        |
 | updatedAt    | Date     | 更新時間                        |
 
----
-
 ### 3. 預約 (Bookings)
 
 | 欄位         | 類型      | 描述                           |
@@ -142,7 +139,6 @@ Designer By MengPoTsen.
 | createdAt    | Date     | 創建時間                        |
 | updatedAt    | Date     | 更新時間                        |
 
----
 
 ### 4. 社群互動 (Interactions)
 
@@ -157,7 +153,6 @@ Designer By MengPoTsen.
 | rating       | Number   | 評價分數 (僅適用於 review)      |
 | createdAt    | Date     | 創建時間                        |
 
----
 
 ### 5. 系統管理 (Admin)
 
@@ -174,30 +169,56 @@ Designer By MengPoTsen.
 ---
 
 ## API 設計
-### 1. 用戶 (Users)
-  - **POST /api/users/register - 用戶註冊**
-  - **POST /api/users/login - 用戶登入**
-  - **GET /api/users/:id - 獲取用戶資料**
-  - **PUT /api/users/:id - 更新用戶資料**
-### 2. 品牌 (Brands)
-  - **POST /api/brands/create - 創建品牌**
-  - **GET /api/brands/:id - 獲取品牌資料**
-  - **GET /api/brands - 獲取所有品牌**
-  - **PUT /api/brands/:id - 更新品牌資料**
-  - **DELETE /api/brands/:id - 刪除品牌**
-### 3. 預約 (Bookings)
-  - **POST /api/bookings/create - 創建預約**
-  - **GET /api/bookings/:id - 獲取預約資料**
-  - **PUT /api/bookings/:id - 更新預約資料**
-  - **DELETE /api/bookings/:id - 取消預約**
-### 4. 付款 (Payments)
-  - **POST /api/payments/stripe - 進行 Stripe 付款**
-  - **POST /api/payments/tappay - 進行 TapPay 付款**
-### 5. 社群互動 (Interactions)
-  - **POST /api/interactions/follow - 追蹤品牌或用戶**
-  - **POST /api/interactions/like - 點贊**
-  - **POST /api/interactions/comment - 留言**
-  - **POST /api/interactions/review - 評價**
+
+### 用戶 (Users)
+
+| 方法    | 路由                       | 描述                 |
+| ------- | -------------------------- | -------------------- |
+| POST    | `/api/users/register`      | 用戶註冊             |
+| POST    | `/api/users/login`         | 用戶登入             |
+| GET     | `/api/users/:id`           | 獲取用戶資料         |
+| PUT     | `/api/users/:id`           | 更新用戶資料         |
+
+---
+
+### 品牌 (Brands)
+
+| 方法    | 路由                       | 描述                 |
+| ------- | -------------------------- | -------------------- |
+| POST    | `/api/brands/create`       | 創建品牌             |
+| GET     | `/api/brands/:id`          | 獲取品牌資料         |
+| GET     | `/api/brands`              | 獲取所有品牌         |
+| PUT     | `/api/brands/:id`          | 更新品牌資料         |
+| DELETE  | `/api/brands/:id`          | 刪除品牌             |
+
+
+### 預約 (Bookings)
+
+| 方法    | 路由                       | 描述                 |
+| ------- | -------------------------- | -------------------- |
+| POST    | `/api/bookings/create`     | 創建預約             |
+| GET     | `/api/bookings/:id`        | 獲取預約資料         |
+| PUT     | `/api/bookings/:id`        | 更新預約資料         |
+| DELETE  | `/api/bookings/:id`        | 取消預約             |
+
+
+### 付款 (Payments)
+
+| 方法    | 路由                       | 描述                 |
+| ------- | -------------------------- | -------------------- |
+| POST    | `/api/payments/stripe`     | 進行 Stripe 付款     |
+| POST    | `/api/payments/tappay`     | 進行 TapPay 付款     |
+
+
+### 社群互動 (Interactions)
+
+| 方法    | 路由                       | 描述                 |
+| ------- | -------------------------- | -------------------- |
+| POST    | `/api/interactions/follow` | 追蹤品牌或用戶       |
+| POST    | `/api/interactions/like`   | 點贊                 |
+| POST    | `/api/interactions/comment`| 留言                 |
+| POST    | `/api/interactions/review` | 評價                 |
+
 
 ---
 
