@@ -238,4 +238,4 @@ GlowNest 是一個針對美髮美容業（如美睫、美甲）的社群與預�
   
 
 ## License  
-此專案採用 MIT License，詳細內容請參閱 [LICENSE](./LICENSE) 文件。  
+此專案採用 PoTsen License，詳細內容請參閱 [LICENSE](./LICENSE) 文件。  
