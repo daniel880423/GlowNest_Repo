@@ -12,7 +12,7 @@ GlowNest 是一個針對美髮美容業（如美睫、美甲）的社群與預�
 ---
 
 ## 系統架構  
-- **前端技術：** React
+- **前端技術：** React / Next.js
 - **後端技術：** Node.js (Express.js)
 - **資料庫：** MongoDB / PostgreSQL
 - **部署平台：** 
