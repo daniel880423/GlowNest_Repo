@@ -87,34 +87,33 @@ Designer By MengPoTsen.
 ## 資料結構設計
 
 ### 1. 用戶 (Users)
-** js ** 
-{
-  _id: ObjectId,
-  name: String,
-  email: String,
-  password: String,   // 使用 bcrypt 進行加密
-  role: String,       // ['customer', 'member', 'admin']
-  phone: String,
-  avatar: String,     // 頭像 URL
-  bio: String,        // 個人簡介
-  skills: [String],   // 技能標籤 (ex: ['美睫', '美甲', '造型設計'])
-  portfolio: [        // 作品集展示
-    {
-      title: String,
-      image: String,
-      description: String,
-      tags: [String]
-    }
-  ],
-  socialLinks: {      // 社群連結
-    instagram: String,
-    facebook: String,
-    line: String
-  },
-  favorites: [ObjectId],   // 收藏的品牌或技師 (關聯到 Brands 或 Users)
-  createdAt: Date,
-  updatedAt: Date
-}
+- **{**
+  - **_id: ObjectId,**
+  - **name: String,**
+  - **email: String,**
+  - **password: String,   // 使用 bcrypt 進行加密**
+  - **role: String,       // ['customer', 'member', 'admin']**
+  - **phone: String,**
+  - **avatar: String,     // 頭像 URL**
+  - **bio: String,        // 個人簡介**
+  - **skills: [String],   // 技能標籤 (ex: ['美睫', '美甲', '造型設計'])**
+  - **portfolio: [        // 作品集展示**
+    - **{**
+      - **title: String,**
+      - **image: String,**
+      - **description: String,**
+      - **tags: [String]**
+    - **}**
+  - **],**
+  - **socialLinks: {      // 社群連結**
+    - **instagram: String,**
+    - **facebook: String,**
+    - **line: String**
+  - **},**
+  - **favorites: [ObjectId],   // 收藏的品牌或技師 (關聯到 Brands 或 Users)**
+  - **createdAt: Date,**
+  - **updatedAt: Date**
+- **}**
 
 ### 2. 品牌 (Brands)
 {
